@@ -1,0 +1,12 @@
+{
+  "name": "openjdk",
+  "description": "",
+  "version": "12.0.2",
+  "preVersion": "12.0.2",
+  "homepage": "https://openjdk.java.net/",
+  "bug": "",
+  "github": "https://github.com/openjdk/jdk",
+  "releases": "https://jdk.java.net/",
+  "url": "",
+  "preUrl": ""
+}
