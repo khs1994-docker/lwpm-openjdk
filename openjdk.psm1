@@ -24,11 +24,12 @@ Function install($VERSION=0,$isPre=0){
     $VERSION=$stableVersion
   }
 
+  # $url="https://mirrors.huaweicloud.com/openjdk/${VERSION}/openjdk-${VERSION}_windows-x64_bin.zip"
+  $url=$lwpm.url
+
   if($isPre){
     $VERSION=$preVersion
-    $url="https://mirrors.huaweicloud.com/openjdk/${VERSION}/openjdk-${VERSION}_windows-x64_bin.zip"
   }else{
-    $url="https://mirrors.huaweicloud.com/openjdk/${VERSION}/openjdk-${VERSION}_windows-x64_bin.zip"
   }
 
   $filename="openjdk-${VERSION}_windows-x64_bin.zip"
