@@ -36,8 +36,6 @@ Function install($VERSION=0,$isPre=0){
   $unzipDesc="openjdk-${VERSION}_windows-x64_bin"
 
   # _exportPath "/path"
-  # $env:path=[environment]::GetEnvironmentvariable("Path","user") `
-  #           + ';' + [environment]::GetEnvironmentvariable("Path","machine")
 
   if($(_command java)){
     $CURRENT_VERSION=(java --version).split(" ")[1]
@@ -73,8 +71,6 @@ Function install($VERSION=0,$isPre=0){
   [environment]::SetEnvironmentvariable("CLASSPATH", ".;$env:JAVA_HOME\lib\dt.jar;$env:JAVA_HOME\lib\tools.jar;", "User")
 
   _exportPath "$env:JAVA_HOME\bin"
-  $env:path=[environment]::GetEnvironmentvariable("Path","user") `
-            + ';' + [environment]::GetEnvironmentvariable("Path","machine")
 
   install_after
 
