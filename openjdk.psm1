@@ -38,6 +38,8 @@ Function install($VERSION=0,$isPre=0){
   # _exportPath "/path"
 
   if($(_command java)){
+    $ErrorActionPreference
+    $ErrorActionPreference='Continue'
     $CURRENT_VERSION=(java --version).split(" ")[1]
 
     if ($CURRENT_VERSION -eq $VERSION){
