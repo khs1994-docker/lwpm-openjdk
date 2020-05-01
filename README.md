@@ -1,9 +1,9 @@
-# LWPM openjdk
+# LWPM -- openjdk
 
 ```bash
 $ cd ~/lnmp
 
-$ composer require lwpm/openjdk
+$ lnmp-windows-pm.ps1 add openjdk
 
-$ lnmp-windows-pm install openjdk
+$ lnmp-windows-pm.ps1 install openjdk
 ```

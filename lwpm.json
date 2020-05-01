@@ -2,11 +2,33 @@
   "name": "openjdk",
   "description": "",
   "version": "12.0.2",
-  "preVersion": "12.0.2",
+  "pre-version": "12.0.2",
   "homepage": "https://openjdk.java.net/",
   "bug": "",
   "github": "https://github.com/openjdk/jdk",
   "releases": "https://jdk.java.net/",
   "url": "https://download.java.net/java/GA/jdk12.0.2/e482c34c86bd4bf8b56c0b35558996b9/10/GPL/openjdk-12.0.2_windows-x64_bin.zip",
-  "preUrl": ""
+  "url-mirror": "https://mirrors.huaweicloud.com/openjdk/${VERSION}/openjdk-${VERSION}_windows-x64_bin.zip",
+  "pre-url": "",
+  "command": "java",
+  "scripts": {
+    "version": "(java --version).split(' ')[1]",
+    "install": [
+      "_unzip $filename $unzipDesc",
+      "Copy-item -r -force \"$unzipDesc\\jdk-${VERSION}\" \"${env:ProgramData}\\openjdk\""
+    ],
+    "postinstall": [
+      "[environment]::SetEnvironmentvariable('JAVA_HOME', \"${env:ProgramData}\\openjdk\", 'User')",
+      "[environment]::SetEnvironmentvariable('JAVA_HOME', \"${env:ProgramData}\\openjdk\", 'Process')",
+      "[environment]::SetEnvironmentvariable('CLASSPATH', \".;$env:JAVA_HOME\\lib\\dt.jar;$env:JAVA_HOME\\lib\\tools.jar;\", 'User')"
+    ],
+    "uninstall": "_cleanup \"${env:ProgramData}\\openjdk\"",
+    "test": [
+      "get-command java",
+      "java --version"
+    ]
+  },
+  "path": [
+    "${env:ProgramData}\\openjdk\\bin"
+  ]
 }
