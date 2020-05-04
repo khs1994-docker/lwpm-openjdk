@@ -14,8 +14,10 @@
   "scripts": {
     "version": "(java --version).split(' ')[1]",
     "install": [
+      "_cleanup $unzipDesc",
       "_unzip $filename $unzipDesc",
-      "Copy-item -r -force \"$unzipDesc\\jdk-${VERSION}\" \"${env:ProgramData}\\openjdk\""
+      "Copy-item -r -force \"$unzipDesc\\jdk-${VERSION}\" \"${env:ProgramData}\\openjdk\"",
+      "_cleanup $unzipDesc"
     ],
     "postinstall": [
       "[environment]::SetEnvironmentvariable('JAVA_HOME', \"${env:ProgramData}\\openjdk\", 'User')",
